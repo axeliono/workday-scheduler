@@ -2,9 +2,15 @@ var currentTime = moment().format("LT");
 console.log(currentTime);
 var rowAmt = document.getElementsByClassName("hour");
 var rowArray = [];
+var DescriptionList = {};
 
 //put all row elements into array
 rowArray.push($(".row"));
+
+var descriptionArray = []
+descriptionArray.push($(".description"));
+
+for()
 
 //show current date in Jumbotron
 $("#currentDay").text(moment().format("LL"));
@@ -34,7 +40,20 @@ var checkRowArray = function() {
 
     for(i = 0; i < rowArray.length; i++) {
         checkTime(rowArray[i]);
+        
     }
 }
+
+$(".description").click(function() {
+    var text = $(this).text()
+    var textInput = $("<textarea>")
+        .addClass("text-input")
+        .val(text);
+
+    $(this).replacewith(textInput)
+    textInput.trigger("focus");
+    console.log("this is the text: " + text);
+    
+})
 
 checkRowArray();
