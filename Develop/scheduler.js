@@ -2,14 +2,7 @@ var currentTime = moment().format("LT");
 console.log(currentTime);
 var rowAmt = document.getElementsByClassName("hour");
 var rowArray = [];
-
-var textArray = []
-
-//if the array for localstorage of text is empty then push current textareas into it
-if(!textArray) {
-    textArray.push($("textarea"));
-}
-
+var textArray = [];
 
 //put all row elements into array
 rowArray.push($(".row"));
@@ -45,9 +38,28 @@ var checkRowArray = function() {
     }
 }
 
-$(".saveBtn").click(saveWork);
+$("textarea").on("blur", function() {
+    var id = $(this).attr("index");
+    var text = $(this).val().trim();
+    console.log("blur in row of index: " + id);
+    console.log("text is: " + text);
+    textArray[id] = text;
+});
 
-var saveWork = function() {
 
+
+$(".saveBtn").click(function() {
+    console.log("click");
+    localStorage.setItem("savedTasks", JSON.stringify(textArray));
+    
+})
+
+var displaySavedWork = function() {
+    textArray = localStorage.getItem("savedTasks");
+    for(i = 0; i < textArray.length; i++) {
+        $("#"+ i).val() = textArray[i];
+        console.log("showing" + textArray[i]);
+    }
 }
+displaySavedWork();
 checkRowArray();
