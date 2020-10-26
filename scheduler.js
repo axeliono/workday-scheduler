@@ -52,14 +52,14 @@ $(".saveBtn").click(function() {
     console.log("click");
     localStorage.setItem("savedTasks", JSON.stringify(textArray));
     
-})
+});
 
 var displaySavedWork = function() {
     textArray = localStorage.getItem("savedTasks");
     for(i = 0; i < textArray.length; i++) {
-        $("#"+ i).val() = textArray[i];
+        $("#"+ i).text() = textArray[i];
         console.log("showing" + textArray[i]);
     }
 }
-displaySavedWork();
+//displaySavedWork();
 checkRowArray();
