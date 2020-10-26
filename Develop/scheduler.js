@@ -2,19 +2,20 @@ var currentTime = moment().format("LT");
 console.log(currentTime);
 var rowAmt = document.getElementsByClassName("hour");
 var rowArray = [];
-var DescriptionList = {};
+
+var textArray = []
+
+//if the array for localstorage of text is empty then push current textareas into it
+if(!textArray) {
+    textArray.push($("textarea"));
+}
+
 
 //put all row elements into array
 rowArray.push($(".row"));
 
-var descriptionArray = []
-descriptionArray.push($(".description"));
-
-for()
-
 //show current date in Jumbotron
 $("#currentDay").text(moment().format("LL"));
-
 
 //function that goes to every row and compares it's time id with the current time
 var checkTime = function(rowItem) {
@@ -44,16 +45,9 @@ var checkRowArray = function() {
     }
 }
 
-$(".description").click(function() {
-    var text = $(this).text()
-    var textInput = $("<textarea>")
-        .addClass("text-input")
-        .val(text);
+$(".saveBtn").click(saveWork);
 
-    $(this).replacewith(textInput)
-    textInput.trigger("focus");
-    console.log("this is the text: " + text);
-    
-})
+var saveWork = function() {
 
+}
 checkRowArray();
