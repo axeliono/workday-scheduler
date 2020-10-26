@@ -8,3 +8,5 @@
   When the blue save button is clicked the event for that hour will be saved into local storage
   
   When refreshed or returned to the page the events saved will persist.
+
+./Assets/screenshot.jpg
