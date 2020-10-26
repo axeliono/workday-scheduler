@@ -9,5 +9,5 @@
   
   When refreshed or returned to the page the events saved will persist.
 
-./Assets/screenshot.jpg
+![screenshot](./Assets/screenshot.jpg)
 https://axeliono.github.io/workday-scheduler/
