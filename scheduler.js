@@ -50,16 +50,17 @@ $("textarea").on("blur", function() {
 
 $(".saveBtn").click(function() {
     console.log("click");
-    localStorage.setItem("savedTasks", JSON.stringify(textArray));
+    localStorage.setItem("savedTasks", textArray);
+    console.log(localStorage.getItem("savedTasks"));
     
 });
 
 var displaySavedWork = function() {
-    textArray = localStorage.getItem("savedTasks");
+    textArray.push(localStorage.getItem("savedTasks"));
     for(i = 0; i < textArray.length; i++) {
-        $("#"+ i).text() = textArray[i];
-        console.log("showing" + textArray[i]);
+        $("#" + i).text() = textArray[i];
     }
 }
-//displaySavedWork();
+
 checkRowArray();
+displaySavedWork();
